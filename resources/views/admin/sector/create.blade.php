@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Create New Program')
+@section('title', 'Create New Sector')
 
 @push('style')
 <!-- CSS Libraries -->
@@ -13,18 +13,18 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Create Programs</h1>
+            <h1>Create Sectors</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('programs.index') }}">Sectors Management</a></div>
-                <div class="breadcrumb-item">Create New Program</div>
+                <div class="breadcrumb-item"><a href="{{ route('sector.index') }}">Sectors Management</a></div>
+                <div class="breadcrumb-item">Create New Sector</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Create New Program</h2>
+            <h2 class="section-title">Create New Sector</h2>
             <p class="section-lead">
-                Create New Program manually from Administration by filling the forms.
+                Create New Sector manually from Administration by filling the forms.
             </p>
 
             <div class="row">
@@ -33,14 +33,14 @@
                         <div class="card-header">
                             <h4>Input Data</h4>
                         </div>
-                        <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('sector.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control" required>
-                                        @error('title')
+                                        <input type="text" name="name" class="form-control" required>
+                                        @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -56,53 +56,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Select
-                                        Sector</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <select name="id_sector" class="form-control selectric" required>
-                                            @foreach($sectors as $sector)
-                                            <option value="{{ $sector->id }}">{{ $sector->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Proposal
-                                        Link</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="proposal" class="form-control" required>
-                                        @error('proposal')
-                                        <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Contact Link
-                                        (Whatsapp Link)</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="contact" value="https://wa.me/" class="form-control"
-                                            required>
-                                        @error('contact')
-                                        <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-4">
-                                    <label
-                                        class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Thumbnail (jpeg,png,jpg,svg)</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Thumbnail
+                                        (jpeg,png,jpg,svg)</label>
                                     <div class="col-sm-12 col-md-2">
                                         <div id="image-preview" class="image-preview">
                                             <label for="image-upload" id="image-label">Choose File</label>
                                             <input type="file" name="thumbnail" id="image-upload" />
                                         </div>
-                                        @error('thumbnail')
-                                        <small class="text-danger">{{ $message }}</small>
-                                        @enderror
                                     </div>
+                                    @error('thumbnail')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group row mb-4">
-                                    <div class="col-sm-12 col-md-7 offset-md-3">
-                                        <button type="submit" class="btn btn-primary">Create Program</button>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <button type="submit" class="btn btn-primary">Create Sector</button>
                                     </div>
                                 </div>
                             </div>

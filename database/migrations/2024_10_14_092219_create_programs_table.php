@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_sector')->unsigned();
+            $table->unsignedBigInteger('id_sector'); // Ensure this is unsigned if 'id' in sectors is unsigned
             $table->string('title');
-            $table->text('desc');
-            $table->string('proposal_link');
+            $table->text('description');
+            $table->string('proposal')->nullable();
             $table->string('contact');
+            $table->string('thumbnail');
+            $table->foreign('id_sector')->references('id')->on('sectors')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
+
     }
 
     /**

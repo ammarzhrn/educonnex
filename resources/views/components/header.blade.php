@@ -223,12 +223,13 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image"
-                    src="{{ auth()->user()->image ? asset('storage/profile' . auth()->user()->image) : asset('images/default.png') }}"
-                    class="rounded-circle mr-1">
+                    src="{{ auth()->user()->profile_pic && auth()->user()->profile_pic !== 'default.png' ? asset('storage/profile_pics/' . auth()->user()->profile_pic) : asset('images/default.png') }}"
+                    class="rounded-circle mr-1" style="width: 35px; height: 35px;">
+
                 <div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="features-profile.html" class="dropdown-item has-icon">
+                <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>

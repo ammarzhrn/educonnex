@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SectorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::resource('dashboard', DashboardController::class);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('user', UserController::class);
+    Route::resource('sector', SectorController::class);
+    Route::resource('programs', ProgramController::class);
 });
 require __DIR__.'/auth.php';

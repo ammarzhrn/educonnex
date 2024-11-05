@@ -32,7 +32,7 @@
                 <div class="card-body d-flex flex-row align-items-center">
                     <div class="author-box-left mr-5">
                         <img alt="image"
-                            src="{{ $user->image ? asset('storage/profile' . $user->image) : asset('images/default.png') }}"
+                            src="{{ $user->profile_pic && $user->profile_pic !== 'default.png' ? asset('storage/profile_pics/' . $user->profile_pic) : asset('images/default.png') }}"
                             class="rounded-circle" style="max-width: 150px;">
                         <div class="clearfix"></div>
                     </div>
@@ -42,7 +42,8 @@
                                 <a href="#">{{ $user->name }}</a>
                             </div>
                             <div class="author-box-job">{{ $user->email }}</div>
-                            <a href="#" class="btn btn-primary mt-3">{{ $user->role == 'admin' ? 'Administrator' : 'Super Administrator' }}</a>
+                            <a href="#"
+                                class="btn btn-primary mt-3">{{ $user->role == 'admin' ? 'Administrator' : 'Super Administrator' }}</a>
                         </div>
                     </div>
                 </div>
