@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('sectors', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_sektor');
-            $table->text('desc');
+            $table->string('name');
+            $table->text('description');
             $table->string('thumbnail')->default('thumbnail.png');
             $table->timestamps();
         });

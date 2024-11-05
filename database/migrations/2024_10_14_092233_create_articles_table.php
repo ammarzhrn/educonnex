@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_user')->unsigned();
             $table->string('title');
-            $table->string('thumbnail')->default('default.png');
+            $table->string('thumbnail')->default('thumbnail.png');
             $table->text('article');
             $table->string('category');
             $table->json('documentation')->nullable();

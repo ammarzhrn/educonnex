@@ -12,8 +12,16 @@
             </div>
 
             <div class="flex">
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    @if(request()->routeIs('profile.edit'))
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dasboard')" :class="request()->routeIs('dashboard') 
+                        ? 'text-[#0088CC] border-b-2 border-[#0088CC]' 
+                        : 'text-black border-b-2 border-transparent'">
+                        {{ __('Back to Dashboard') }}
+                    </x-nav-link>
+                    @else
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')" :class="request()->routeIs('home') 
                         ? 'text-[#0088CC] border-b-2 border-[#0088CC]' 
                         : 'text-black border-b-2 border-transparent'">
@@ -34,6 +42,7 @@
                         : 'text-black border-b-2 border-transparent'">
                         {{ __('Artikel') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 

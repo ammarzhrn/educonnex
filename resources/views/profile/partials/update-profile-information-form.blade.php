@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
@@ -45,6 +45,20 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <!-- Profile Picture Section -->
+        <div>
+            <x-input-label for="profile_pic" :value="__('Profile Picture')" />
+
+            <!-- Display current profile picture -->
+            <div class="mt-2">
+                <img src="{{ $user->profile_pic === 'default.png' ? asset('images/default.png') : asset('storage/profile_pics/' . $user->profile_pic) }}" alt="Profile Picture" class="w-24 h-24 rounded-full">
+            </div>
+
+            <!-- File input for new profile picture -->
+            <input type="file" id="profile_pic" name="profile_pic" class="mt-2 block w-full">
+            <x-input-error class="mt-2" :messages="$errors->get('profile_pic')" />
         </div>
 
         <div class="flex items-center gap-4">
