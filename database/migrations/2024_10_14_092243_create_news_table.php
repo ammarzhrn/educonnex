@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_user')->unsigned();
+            $table->string('title');
+            $table->string('thumbnail')->default('default.png');
+            $table->text('article');
+            $table->string('category');
+            $table->json('documentation')->nullable();
+            $table->enum('status', ['draf', 'pending', 'published'])->default('pending');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
