@@ -43,4 +43,9 @@ class Article extends Model
             set: fn ($value) => is_array($value) ? json_encode($value) : $value,
         );
     }
+    
+    public function getCategoryAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

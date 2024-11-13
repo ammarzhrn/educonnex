@@ -35,14 +35,14 @@
                 </ul>
             </li>
 
-            <li class="{{ Request::is('/home') ? 'active' : '' }}">
+            <li class="{{ Request::is('article.index') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('/home') }}"><i class="far fa-file-alt"></i> <span>Articles Management</span></a>
+                    href="{{ route('article.index') }}"><i class="far fa-file-alt"></i> <span>Articles Management</span></a>
             </li>
 
-            <li class="{{ Request::is('/home') ? 'active' : '' }}">
+            <li class="{{ Request::is('news.index') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('/home') }}"><i class="fas fa-plug"></i> <span>News Management</span></a>
+                    href="{{ route('news.index') }}"><i class="fas fa-plug"></i> <span>News Management</span></a>
             </li>
         </ul>
     </aside>

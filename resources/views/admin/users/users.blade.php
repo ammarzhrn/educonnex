@@ -1,3 +1,4 @@
+@if (Auth::user()->role == 'superAdmin')
 @extends('layouts.app-admin')
 
 @section('title', 'Users Management')
@@ -72,10 +73,13 @@
                                                 <div class="bullet"></div>
                                                 <a href="{{ route('user.edit', $user->id) }}">Edit</a>
                                                 <div class="bullet"></div>
-                                                <a href="#" class="text-danger" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $user->id }}').submit();">
+                                                <a href="#" class="text-danger"
+                                                    onclick="event.preventDefault(); document.getElementById('delete-form-{{ $user->id }}').submit();">
                                                     Trash
                                                 </a>
-                                                <form id="delete-form-{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST" style="display: none;">
+                                                <form id="delete-form-{{ $user->id }}"
+                                                    action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                    style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
@@ -117,3 +121,8 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('admin/js/page/features-posts.js') }}"></script>
 @endpush
+@else
+@php
+abort(403, 'Unauthorized action.');
+@endphp
+@endif
