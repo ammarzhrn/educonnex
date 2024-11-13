@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('thumbnail')->default('thumbnail.png');
             $table->text('article');
             $table->string('category');
-            $table->json('documentation')->nullable();
-            $table->enum('status', ['draf', 'pending', 'published'])->default('pending');
+            $table->enum('status', ['reject', 'pending', 'published'])->default('pending');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
