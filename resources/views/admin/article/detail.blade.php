@@ -33,10 +33,17 @@
                 <div class="card-body">
                     <h6>Thumbnail</h6>
                     <div class="gallery gallery-fw" data-item-height="340">
-                        <div class="gallery-item" data-image="{{ $article->thumbnail && file_exists(public_path('storage/' . $article->thumbnail))
+                        <!-- <div class="gallery-item" data-image="{{ $article->thumbnail && file_exists(public_path('storage/thumbnail' . $article->thumbnail))
                                            ? asset('storage/' . $article->thumbnail)
                                            : asset('images/thumbnail.png') }}" data-title="Thumbnail">
-                        </div>
+
+                                           ib
+                        </div> -->
+
+                        <img src="{{asset('storage/images/thumbnail/'.$article->thumbnail)}}" width="100" alt="thumbnail">
+
+
+                        
                     </div>
 
                     <h6>Article Content</h6>

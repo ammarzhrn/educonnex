@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -62,11 +63,23 @@ class ArticleController extends Controller
         $article->article = $request->article;
         $article->category = json_encode($request->category);
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
-        } else {
-            $data['thumbnail'] = 'images/thumbnail.png';
+        // if ($request->hasFile('thumbnail')) {
+        //     $article->thumbnail = $request->file('thumbnail')->store('thumbnail', 'public');
+        // } else {
+        //     $article->thumbnail = 'images/thumbnail.png';
+        // }
+
+        if($request->hasFile('thumbnail'))
+        {
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/images/thumbnail';
+            $name = 'thumbnail-'.Carbon::now()->format('Ymdhis').'.'.$extension;
+            $path = $request->file('thumbnail')->storeAs($path_dest, $name);
+            $article->thumbnail = $name;
         }
+
+        // dd($article);
 
         $article->save();
 
@@ -79,7 +92,6 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::findOrFail($id);
-
         return view('admin.article.detail', compact('article'));
     }
 
