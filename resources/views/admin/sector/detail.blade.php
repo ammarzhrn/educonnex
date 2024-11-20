@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <h6>Thumbnail</h6>
-                    <div class="gallery gallery-fw" data-item-height="200">
+                    <div class="gallery gallery-fw" data-item-height="340">
                         <div class="gallery-item" data-image="{{ $sector->thumbnail && file_exists(public_path('storage/' . $sector->thumbnail))
                                            ? asset('storage/' . $sector->thumbnail)
                                            : asset('images/thumbnail.png') }}" data-title="Thumbnail">
@@ -36,10 +36,6 @@
 
                     <h6>Description</h6>
                     <p>{{ $sector->description }}</p>
-                    <h6>Proposal Link</h6>
-                    <p>{{ $sector->proposal }}</p>
-                    <h6>Contacts</h6>
-                    <p>{{ $sector->contact }}</p>
                 </div>
             </div>
         </div>

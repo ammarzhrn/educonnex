@@ -1,3 +1,4 @@
+@if (Auth::user()->role == 'superAdmin')
 @extends('layouts.app-admin')
 
 @section('title', 'Create Users')
@@ -107,3 +108,10 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('admin/js/page/forms-advanced-forms.js') }}"></script>
 @endpush
+@else
+@php
+abort(403, 'Unauthorized action.');
+@endphp
+@endif
+
+

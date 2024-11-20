@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\UserController;
@@ -42,5 +44,10 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::resource('user', UserController::class);
     Route::resource('sector', SectorController::class);
     Route::resource('programs', ProgramController::class);
+    Route::resource('article', ArticleController::class);
+    Route::patch('/article/{id}/update-status/{status}', [ArticleController::class, 'updateStatus'])->name('article.updateStatus');
+    Route::resource('news', NewsController::class);
+    Route::patch('/news/{id}/update-status/{status}', [NewsController::class, 'updateStatus'])->name('news.updateStatus');
 });
+
 require __DIR__.'/auth.php';
