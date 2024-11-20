@@ -60,6 +60,7 @@
                                         Sector</label>
                                     <div class="col-sm-12 col-md-7">
                                         <select name="id_sector" class="form-control selectric" required>
+                                            <option value="">Select Sector</option>
                                             @foreach($sectors as $sector)
                                             <option value="{{ $sector->id }}">{{ $sector->name }}</option>
                                             @endforeach

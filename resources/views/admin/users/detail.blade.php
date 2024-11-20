@@ -1,3 +1,4 @@
+@if (Auth::user()->role == 'superAdmin')
 @extends('layouts.app-admin')
 
 @section('title', 'User Detail')
@@ -33,7 +34,7 @@
                     <div class="author-box-left mr-5">
                         <img alt="image"
                             src="{{ $user->profile_pic && $user->profile_pic !== 'default.png' ? asset('storage/profile_pics/' . $user->profile_pic) : asset('images/default.png') }}"
-                            class="rounded-circle" style="max-width: 150px;">
+                            class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
                         <div class="clearfix"></div>
                     </div>
                     <div class="author-box-details">
@@ -68,3 +69,10 @@
 <!-- Page Specific JS File -->
 <script src="{{ asset('admin/js/page/forms-advanced-forms.js') }}"></script>
 @endpush
+@else
+@php
+abort(403, 'Unauthorized action.');
+@endphp
+@endif
+
+
