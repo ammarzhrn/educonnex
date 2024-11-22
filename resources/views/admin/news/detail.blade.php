@@ -33,9 +33,7 @@
                 <div class="card-body">
                     <h6>Thumbnail</h6>
                     <div class="gallery gallery-fw" data-item-height="340">
-                        <div class="gallery-item" data-image="{{ $news->thumbnail && file_exists(public_path('storage/' . $news->thumbnail))
-                                           ? asset('storage/' . $news->thumbnail)
-                                           : asset('images/thumbnail.png') }}" data-title="Thumbnail">
+                        <div class="gallery-item" data-image="{{ $news->thumbnail ? asset('storage/images/thumbnails/' . $news->thumbnail) : asset('images/thumbnail.png') }}" data-title="Thumbnail">
                         </div>
                     </div>
 
@@ -44,13 +42,9 @@
 
                     <h6>Categories</h6>
                     <div>
-                        @if (!empty($news->category))
-                        @foreach (json_decode($news->category, true) as $tag)
+                        @foreach($news->category as $tag)
                         <span class="badge badge-primary">{{ $tag }}</span>
                         @endforeach
-                        @else
-                        <span class="badge badge-danger">No Categories</span>
-                        @endif
                     </div>
                     <p></p>
 

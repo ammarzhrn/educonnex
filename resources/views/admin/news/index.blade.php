@@ -118,8 +118,8 @@
                                             {{ $new->user->name ?? 'Unknown User' }}
                                         </td>
                                         <td>
-                                            @if ($new->category && is_array(json_decode($new->category, true)))
-                                            @foreach (json_decode($new->category, true) as $cat)
+                                            @if (is_array($new->category))
+                                            @foreach ($new->category as $cat)
                                             <span class="badge badge-primary">{{ $cat }}</span>
                                             @endforeach
                                             @else

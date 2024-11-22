@@ -76,7 +76,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <img src="{{ asset('storage/' . $sec->thumbnail) }}" alt="Thumbnail"
+                                            <img src="{{ asset('storage/images/thumbnails/' . $sec->thumbnail) }}" alt="Thumbnail"
                                                 style="width: 150px; height: 50px; object-fit: cover; border-radius: 5px;"
                                                 onerror="this.onerror=null; this.src='{{ asset('images/thumbnail.png') }}';">
                                         </td>
