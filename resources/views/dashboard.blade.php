@@ -118,7 +118,13 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-statistic-2">
                     <div class="card-stats">
-                        <div class="card-stats-title">Article Statistics</div>
+                        <div class="card-stats-title">
+                            @if (Auth::user()->role == 'admin')
+                            Your Article Statistics
+                            @else
+                            Article Statistics
+                            @endif
+                        </div>
                         <div class="card-stats-items">
                             <div class="card-stats-item">
                                 <div class="card-stats-item-count text-success">
@@ -160,7 +166,13 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-statistic-2">
                     <div class="card-stats">
-                        <div class="card-stats-title">News Statistics</div>
+                        <div class="card-stats-title">
+                            @if (Auth::user()->role == 'admin')
+                            Your News Statistics
+                            @else
+                            News Statistics
+                            @endif
+                        </div>
                         <div class="card-stats-items">
                             <div class="card-stats-item">
                                 <div class="card-stats-item-count text-success">
