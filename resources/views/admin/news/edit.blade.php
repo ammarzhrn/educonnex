@@ -69,12 +69,11 @@
                                     <label
                                         class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Categories</label>
                                     <div class="col-sm-12 col-md-7">
-                                        @foreach(json_decode($news->category, true) as $tag)
-                                        <input type="text" name="category[]" value="{{ $tag }}"
-                                            class="form-control inputtags mb-2">
+                                        @foreach($news->category as $tag)
+                                            <input type="text" name="category[]" value="{{ $tag }}" class="form-control inputtags mb-2">
                                         @endforeach
                                         @error('category')
-                                        <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>

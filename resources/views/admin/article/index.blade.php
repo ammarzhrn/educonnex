@@ -92,10 +92,10 @@
                                                 <div class="bullet"></div>
                                                 <a href="{{ route('article.show', $arc->id) }}">Detail</a>
                                                 @if (
-                                                (auth()->user()->role === 'superAdmin' && ($new->status !== 'pending' ||
-                                                $new->id_user === auth()->id())) ||
-                                                (auth()->user()->role === 'admin' && $new->status === 'pending' &&
-                                                $new->id_user === auth()->id())
+                                                (auth()->user()->role === 'superAdmin' && ($arc->status !== 'pending' ||
+                                                $arc->id_user === auth()->id())) ||
+                                                (auth()->user()->role === 'admin' && $arc->status === 'pending' &&
+                                                $arc->id_user === auth()->id())
                                                 )
                                                 <div class="bullet"></div>
                                                 <a href="{{ route('article.edit', $arc->id) }}">Edit</a>
