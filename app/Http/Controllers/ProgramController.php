@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use App\Models\Sector;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -49,15 +50,21 @@ class ProgramController extends Controller
 
         $program = new Program($validatedData);
 
+        // Handle thumbnail upload
         if ($request->hasFile('thumbnail')) {
-            $program->thumbnail = $request->file('thumbnail')->store('thumbnails', 'public');
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/thumbnails';
+            $name = 'thumbnail-' . Carbon::now()->format('Ymdhis') . '.' . $extension;
+            $thumb->storeAs($path_dest, $name);
+            $program->thumbnail = $name;
         } else {
-            $program->thumbnail = 'images/thumbnail.png';
+            $program->thumbnail = 'images/thumbnail.png'; // Default thumbnail
         }
 
         $program->save();
 
-        return redirect()->route('programs.index')->with('success', 'Program created successfully');
+        return redirect()->route('programs.index')->with('success', 'Program created successfully!');
     }
 
     /**
@@ -84,7 +91,7 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'id_sector' => 'required|exists:sectors,id',
             'title' => 'required|string|max:50',
             'description' => 'required|string',
@@ -93,18 +100,26 @@ class ProgramController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
 
-        $program->update([
-            'id_sector' => $request->id_sector,
-            'title' => $request->title,
-            'description' => $request->description,
-            'proposal' => $request->proposal,
-            'contact' => $request->contact,
-            'thumbnail' => $request->hasFile('thumbnail')
-                ? $request->file('thumbnail')->store('thumbnail', 'public')
-                : $program->thumbnail,
-        ]);
+        // Update fields
+        $program->id_sector = $validatedData['id_sector'];
+        $program->title = $validatedData['title'];
+        $program->description = $validatedData['description'];
+        $program->proposal = $validatedData['proposal'];
+        $program->contact = $validatedData['contact'];
 
-        return redirect()->route('programs.index')->with('success', 'Program updated successfully');
+        // Check if a new thumbnail was uploaded
+        if ($request->hasFile('thumbnail')) {
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/thumbnails';
+            $name = 'thumbnail-' . Carbon::now()->format('Ymdhis') . '.' . $extension;
+            $thumb->storeAs($path_dest, $name);
+            $program->thumbnail = $name;
+        }
+
+        $program->save();
+
+        return redirect()->route('programs.index')->with('success', 'Program updated successfully!');
     }
 
 
