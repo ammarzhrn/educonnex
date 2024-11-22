@@ -10,12 +10,24 @@ class PublicArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $articles = Article::all();
+    public function index(Request $request)
+{
+    $search = $request->input('search');
+    $articles = Article::query();
 
-        return view('public.article.index', compact('articles'));
+    if ($search) {
+        $articles->where(function ($query) use ($search) {
+            $query->where('title', 'like', "%{$search}%")
+                  ->orWhere('article', 'like', "%{$search}%");
+        });
     }
+
+    $articles = $articles->paginate(10);
+
+    return view('public.article.index', compact('articles', 'search'));
+}
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,9 +48,16 @@ class PublicArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $article = Article::findOrFail($id);
+
+        $otherArticles = Article::where('id', '!=', $id)
+        ->latest() // Atur urutan berdasarkan artikel terbaru
+        ->take(5)  // Batasi jumlah artikel lainnya, misalnya 5
+        ->get();
+
+        return view('public.article.detail', compact('article', 'otherArticles'));
     }
 
     /**

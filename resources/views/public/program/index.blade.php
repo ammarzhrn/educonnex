@@ -53,9 +53,11 @@
             <div class="w-full pb-7 gap-6 grid grid-cols-3 max-md:grid-cols-1">
                 @foreach ($sectors as $sector)
                 <a href="{{ route('programs.bySector', $sector->id) }}">
-                    <div class="w-full rounded-xl border-2 h-72 flex flex-col justify-start items-center overflow-hidden gap-3 hover:bg-gray-100 bg-white">
-                        <img class="h-56 object-cover w-full" src="{{ Storage::url($sector->thumbnail) }}" alt="">
-                        <h1 class="text-2xl text-[#0088CC] font-bold">Sektor {{ $sector->name }}</h1>
+                    <div class="w-full rounded-xl border-2 h-full flex flex-col justify-start items-center overflow-hidden gap-3 hover:bg-gray-100 bg-white">
+                        <img class="h-56 object-cover w-full" src="{{ $sector->thumbnail ? asset('storage/images/thumbnails/' . $sector->thumbnail) : asset('images/thumbnail.png') }}" alt="">
+                        <div class="w-full pb-3 px-3">
+                        <h1 class="text-2xl text-[#0088CC] font-bold">Sektor {{$sector->name}}</h1>
+                        </div>
                     </div>
                 </a>
                 @endforeach

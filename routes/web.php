@@ -22,7 +22,7 @@ Route::resource('program', PublicProgramController::class);
 Route::get('/programs/sector/{sector}', [PublicProgramController::class, 'listBySector'])->name('programs.bySector');
 
 Route::resource('articles', PublicArticleController::class);
-
+Route::get('/articles/search', [PublicArticleController::class, 'search'])->name('articles.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

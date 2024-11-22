@@ -76,7 +76,7 @@
             <div class="w-full gap-6 grid grid-cols-3 max-md:grid-cols-1">
                 @foreach ($program as $item)
                     <div class="w-full h-[450px] flex justify-start items-center flex-col rounded-xl border-2 p-4 bg-white gap-3">
-                        <img class="w-full h-72 rounded object-cover" src="{{ Storage::url($item->thumbnail) }}" alt="">
+                        <img class="w-full h-72 rounded object-cover" src="{{ $item->thumbnail ? asset('storage/thumbnails/' . $item->thumbnail) : asset('images/thumbnail.png') }}" alt="">
                         <div class="w-full h-auto flex justify-start items-start flex-col ga">
                             <h1 class="text-2xl font-bold">{{Str::limit($item->title, 30, '...')}}</h1>
                             <h1 class="text-lg text-gray-700">{{ Str::limit($item->description, 75, '...') }}</h1>

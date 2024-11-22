@@ -14,7 +14,7 @@
                 @foreach ($programs as $program)
                 <div class="w-full h-full border bg-white rounded-xl flex justify-between items-center flex-row text-center p-9 max-md:flex-col">
                     <div class="flex justify-center items-start gap-10 max-md:flex-col max-md:w-full">
-                        <img src="{{ Storage::url($program->thumbnail) }}"
+                        <img src="{{ $program->thumbnail ? asset('storage/thumbnails/' . $program->thumbnail) : asset('images/thumbnail.png') }}"
                             class="h-72 w-72 object-cover rounded-lg" alt="">
                         <div class="flex justify-center items-start flex-col h-full gap-5">
                             <h1 class="text-3xl font-bold">{{$program->title}}</h1>
