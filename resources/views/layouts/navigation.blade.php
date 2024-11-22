@@ -32,12 +32,12 @@
                         : 'text-black border-b-2 border-transparent'">
                         {{ __('About us') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('program')" :active="request()->routeIs('program')" :class="request()->routeIs('program') 
+                    <x-nav-link :href="route('program.index')" :active="request()->routeIs('program.index')" :class="request()->routeIs('program.index') 
                         ? 'text-[#0088CC] border-b-2 border-[#0088CC]' 
                         : 'text-black border-b-2 border-transparent'">
                         {{ __('Program') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('artikel')" :active="request()->routeIs('artikel')" :class="request()->routeIs('artikel') 
+                    <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')" :class="request()->routeIs('articles.index') 
                         ? 'text-[#0088CC] border-b-2 border-[#0088CC]' 
                         : 'text-black border-b-2 border-transparent'">
                         {{ __('Artikel') }}
@@ -77,10 +77,10 @@
             <x-responsive-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
                 {{ __('About us') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('program')" :active="request()->routeIs('program')">
+            <x-responsive-nav-link :href="route('program.index')" :active="request()->routeIs('program.index')">
                 {{ __('Program') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('artikel')" :active="request()->routeIs('artikel')">
+            <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
                 {{ __('Artikel') }}
             </x-responsive-nav-link>
         </div>
