@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sector;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -42,18 +43,25 @@ class SectorController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $data = $request->only('name', 'description');
+        $sector = new Sector();
+        $sector->name = $request->name;
+        $sector->description = $request->description;
 
-        // Handle the thumbnail upload or set default path
+        // Handle the thumbnail upload
         if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/images/thumbnails';
+            $name = 'thumbnail-' . Carbon::now()->format('Ymdhis') . '.' . $extension;
+            $thumb->storeAs($path_dest, $name);
+            $sector->thumbnail = $name;
         } else {
-            $data['thumbnail'] = 'images/thumbnail.png';
+            $sector->thumbnail = 'images/thumbnail.png'; // Default thumbnail
         }
 
-        Sector::create($data);
+        $sector->save();
 
-        return redirect()->route('sector.index')->with('success', 'Sector created successfully');
+        return redirect()->route('sector.index')->with('success', 'Sector created successfully!');
     }
 
 
@@ -81,24 +89,27 @@ class SectorController extends Controller
     public function update(Request $request, Sector $sector)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|max:50',
+            'description' => 'required|min:18|max:256',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $data = $request->only('name', 'description');
+        $sector->name = $request->name;
+        $sector->description = $request->description;
 
         // Check if a new thumbnail was uploaded
         if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-        } else {
-            // Keep the existing thumbnail or set default if empty
-            $data['thumbnail'] = $sector->thumbnail ?? 'images/thumbnail.png';
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/images/thumbnails';
+            $name = 'thumbnail-' . Carbon::now()->format('Ymdhis') . '.' . $extension;
+            $thumb->storeAs($path_dest, $name);
+            $sector->thumbnail = $name;
         }
 
-        $sector->update($data);
+        $sector->save();
 
-        return redirect()->route('sector.index')->with('success', 'Sector updated successfully');
+        return redirect()->route('sector.index')->with('success', 'Sector updated successfully!');
     }
 
     /**

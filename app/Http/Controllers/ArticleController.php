@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+
 
 class ArticleController extends Controller
 {
@@ -62,10 +63,14 @@ class ArticleController extends Controller
         $article->article = $request->article;
         $article->category = json_encode($request->category);
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
-        } else {
-            $data['thumbnail'] = 'images/thumbnail.png';
+        if($request->hasFile('thumbnail'))
+        {
+            $thumb = $request->file('thumbnail');
+            $extension = $thumb->getClientOriginalExtension();
+            $path_dest = 'public/images/thumbnails';
+            $name = 'thumbnail-'.Carbon::now()->format('Ymdhis').'.'.$extension;
+            $path = $request->file('thumbnail')->storeAs($path_dest, $name);
+            $article->thumbnail = $name;
         }
 
         $article->save();
@@ -96,29 +101,32 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'title' => 'required|string|max:50',
-            'article' => 'required|string|min:10',
-            'category' => 'required|array',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
-        ]);
+{
+    $request->validate([
+        'title' => 'required|string|max:50',
+        'article' => 'required|string|min:10',
+        'category' => 'required|array',
+        'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+    ]);
 
-        $article = Article::findOrFail($id);
-        $article->title = $request->title;
-        $article->article = $request->article;
-        $article->category = json_encode($request->category);
+    $article = Article::findOrFail($id);
+    $article->title = $request->title;
+    $article->article = $request->article;
+    $article->category = json_encode($request->category);
 
-        if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
-        } else {
-            $data['thumbnail'] = 'images/thumbnail.png';
-        }
-
-        $article->save();
-
-        return redirect()->route('article.index')->with('success', 'Article updated successfully!');
+    if ($request->hasFile('thumbnail')) {
+        $thumb = $request->file('thumbnails');
+        $extension = $thumb->getClientOriginalExtension();
+        $path_dest = 'public/images/thumbnail';
+        $name = 'thumbnail-' . Carbon::now()->format('Ymdhis') . '.' . $extension;
+        $path = $request->file('thumbnail')->storeAs($path_dest, $name);
+        $article->thumbnail = $name;
     }
+
+    $article->save();
+
+    return redirect()->route('article.index')->with('success', 'Article updated successfully!');
+}
 
     /**
      * Update the specified resource in storage.
