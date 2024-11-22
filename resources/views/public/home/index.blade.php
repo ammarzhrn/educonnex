@@ -69,14 +69,23 @@
     <div class="w-screen bg-white flex justify-center items-center max-md:h-auto max-md:px-5 max-md:py-5 py-28">
         <div class="max-w-7xl mx-auto w-full h-full flex justify-center items-center flex-col">
             <div class="w-full py-7 flex justify-center items-start flex-col gap-4">
-                <h1 class="text-xl text-gray-600 font-medium">PROGRAM KAMI</h1>
-                <h1 class="text-4xl font-bold">Apa Saja Program Milik Educonnex?</h1>
+                <h1 class="text-xl text-gray-600 font-medium">PROGRAM UNGGULAN KAMI</h1>
+                <h1 class="text-4xl font-bold">Apa Saja Program Unggulan Educonnex?</h1>
                 <h1 class="text-xl text-[#0088CC] font-medium">Website Pelatihan nomor 1. di Indonesia 🇮🇩 </h1>
             </div>
-            <div class="w-full pb-7 gap-6 grid grid-cols-3 max-md:grid-cols-1">
-                <img class="w-full h-full object-cover rounded-xl border-2 max-md:h-72" src="images/thumbnail4.png" alt="">
-                <img class="w-full h-full object-cover rounded-xl border-2 max-md:h-72" src="images/thumbnail5.png" alt="">
-                <img class="w-full h-full object-cover rounded-xl border-2 max-md:h-72" src="images/thumbnail6.png" alt="">
+            <div class="w-full gap-6 grid grid-cols-3 max-md:grid-cols-1">
+                @foreach ($program as $item)
+                    <div class="w-full h-[450px] flex justify-start items-center flex-col rounded-xl border-2 p-4 bg-white gap-3">
+                        <img class="w-full h-72 rounded object-cover" src="{{ Storage::url($item->thumbnail) }}" alt="">
+                        <div class="w-full h-auto flex justify-start items-start flex-col ga">
+                            <h1 class="text-2xl font-bold">{{Str::limit($item->title, 30, '...')}}</h1>
+                            <h1 class="text-lg text-gray-700">{{ Str::limit($item->description, 75, '...') }}</h1>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="w-full flex justify-center items-start flex-col gap-4 pt-5">
+                <a href="{{route('program.index')}}" class="text-2xl text-[#0088CC] hover:text-[#0088ccbf] font-semibold">Selengkapnya...</a>
             </div>
         </div>
     </div>

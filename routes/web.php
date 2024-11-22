@@ -5,33 +5,24 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\PublicArticleController;
+use App\Http\Controllers\PublicHomeController;
+use App\Http\Controllers\PublicProgramController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('public.home.index');
-})->name('home');
+Route::get('/', [PublicHomeController::class, 'index'])->name('home');
 
 Route::get('aboutus', function () {
     return view('public.about_us.index');
 })->name('aboutus');
 
-Route::get('program', function () {
-    return view('public.program.index');
-})->name('program');
+Route::resource('program', PublicProgramController::class);
+Route::get('/programs/sector/{sector}', [PublicProgramController::class, 'listBySector'])->name('programs.bySector');
 
-Route::get('content', function () {
-    return view('public.program.detail');
-})->name('content');
+Route::resource('articles', PublicArticleController::class);
 
-Route::get('artikel', function () {
-    return view('public.artikel.index');
-})->name('artikel');
-
-Route::get('detailartikel', function () {
-    return view('public.artikel.detail');
-})->name('detailartikel');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

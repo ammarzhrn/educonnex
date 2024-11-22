@@ -114,56 +114,21 @@
 
                 {{-- Item Artikel --}}
                 
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                    <a href="{{route('detailartikel')}}">
-                        <img class="rounded-t-lg" src="images/bg_artikel.png" alt="" />
+                @foreach ($articles as $article)
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+                    <a href="">
+                        <img class="w-full h-[230px] object-cover" src="{{Storage::url($article->thumbnail)}}" alt="" />
                     </a>
-                    <div class="p-5">
-                        <a href="{{route('detailartikel')}}">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Program Pelatihan Mengelola
-                                Sekolah yang Anti-Mainstream!</h5>
+                    <div class="p-5 h-[140px]">
+                        <a href="">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$article->title}}</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700">Laporan dan cerita seputar program pelatihan mengelola
-                            sekolah yang anti mainstream yang baru saja dilaksanakan.</p>
-                        <a class="mb-3 font-medium text-[#0088CC] text-lg" href="{{route('detailartikel')}}">Lihat Selengkapnya</a>
+                        <a class="mb-3 font-medium text-[#0088CC] text-lg" href="">Lihat Selengkapnya</a>
                     </div>
                     <hr>
-                    <h1 class="text-neutral-500 p-5">10 November 2024</h1>
+                    <h1 class="text-neutral-500 p-5">{{$article->created_at}}</h1>
                 </div>
-
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="images/bg_artikel.png" alt="" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Program Pelatihan Mengelola
-                                Sekolah yang Anti-Mainstream!</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700">Laporan dan cerita seputar program pelatihan mengelola
-                            sekolah yang anti mainstream yang baru saja dilaksanakan.</p>
-                        <p class="mb-3 font-medium text-[#0088CC] text-lg">Lihat Selengkapnya</p>
-                    </div>
-                    <hr>
-                    <h1 class="text-neutral-500 p-5">10 November 2024</h1>
-                </div>
-
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="images/bg_artikel.png" alt="" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Program Pelatihan Mengelola
-                                Sekolah yang Anti-Mainstream!</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700">Laporan dan cerita seputar program pelatihan mengelola
-                            sekolah yang anti mainstream yang baru saja dilaksanakan.</p>
-                        <p class="mb-3 font-medium text-[#0088CC] text-lg">Lihat Selengkapnya</p>
-                    </div>
-                    <hr>
-                    <h1 class="text-neutral-500 p-5">10 November 2024</h1>
-                </div>
+                @endforeach
 
             </div>
         </div>
