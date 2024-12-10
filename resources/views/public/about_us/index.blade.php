@@ -14,16 +14,7 @@
                 </div>
                 <div class="w-1/2 h-[420px] flex justify-center items-start flex-col gap-10 pl-5 max-md:w-full max-md:h-auto max-md:pl-0">
                     <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Penjelasan terkait apa itu Educonnex di sini.
-                        Educonnex merupakan platform training
-                    </h1>
-                    <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Pada Educonnex, kamu bisa mengikuti berbagai
-                        macam training yang tersedia, terutama seputar
-                        digital skills. (deskripsi contoh)
-                    </h1>
-                    <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Tidak hanya itu, namun juga bla bla bla...
+                        Educonnex adalah konsultan tempat kami berkolaborasi dengan mitra kami untuk memberikan pendidikan yang lebih baik dengan inovasi.
                     </h1>
                     <a href="" class="text-2xl text-[#0088CC] font-bold flex justify-center items-center gap-3">Baca Selengkapnya <span><img src="images/arrow_blue.png" width="19px" alt=""></span></a>
                 </div>
@@ -70,20 +61,20 @@
             <div class="w-full pb-7 gap-6 grid grid-cols-2 h-[500px] max-md:grid-cols-1 max-md:h-auto">
                 <div class="w-full h-full border bg-white rounded-xl flex justify-center items-center flex-col text-center p-9 gap-8">
                     <h1 class="text-3xl font-bold">Visi Educonnex</h1>
-                    <ul class="list-disc space-y-5">
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari visi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari visi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari visi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari visi</li>
+                    <ul class="space-y-5 text-start text-lg">
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Mitra Pendidikan</span> : Berperan sebagai mitra dalam mendukung kebutuhan pendidikan.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Kreativitas</span> : Mengutamakan inovasi dan ide-ide segar.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Keahlian</span> : Menawarkan kompetensi profesional yang unggul.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Komitmen Teguh</span> : Berfokus pada dedikasi penuh untuk keberhasilan klien.</li>
                     </ul>
                 </div>
                 <div class="w-full h-full border bg-white rounded-xl flex justify-center items-center flex-col text-center p-9 gap-8">
                     <h1 class="text-3xl font-bold">Misi Educonnex</h1>
-                    <ul class="list-disc space-y-5">
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari misi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari misi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari misi</li>
-                        <li class="text-2xl font-normal text-zinc-700 list-item">Poin poin dari misi</li>
+                    <ul class="space-y-5 text-start text-lg">
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Memberdayakan Pendidikan</span> : Mendukung peningkatan kualitas pendidikan.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Solusi Inovatif</span> : Menghadirkan ide-ide dan pendekatan yang kreatif.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Solusi Luar Biasa</span> : Menyediakan layanan dan produk berkualitas tinggi.</li>
+                        <li class="font-normal text-zinc-700"><span class="font-bold">Pertumbuhan Berkelanjutan</span> : Mendorong perkembangan yang stabil dan jangka panjang.</li>
                     </ul>
                 </div>
             </div>

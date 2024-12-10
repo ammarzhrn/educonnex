@@ -34,18 +34,9 @@
                 </div>
                 <div class="w-1/2 h-[420px] flex justify-center items-start flex-col gap-10 pl-5 max-md:p-0 max-md:w-full">
                     <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Penjelasan terkait apa itu Educonnex di sini.
-                        Educonnex merupakan platform training
+                        Educonnex adalah konsultan tempat kami berkolaborasi dengan mitra kami untuk memberikan pendidikan yang lebih baik dengan inovasi.
                     </h1>
-                    <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Pada Educonnex, kamu bisa mengikuti berbagai
-                        macam training yang tersedia, terutama seputar
-                        digital skills. (deskripsi contoh)
-                    </h1>
-                    <h1 class="text-2xl text-gray-500 font-medium text-justify">
-                        Tidak hanya itu, namun juga bla bla bla...
-                    </h1>
-                    <a href="" class="text-2xl text-[#0088CC] font-bold flex justify-center items-center gap-3">Baca Selengkapnya <span><img src="images/arrow_blue.png" width="19px" alt=""></span></a>
+                    <a href="{{route('aboutus')}}" class="text-2xl text-[#0088CC] font-bold flex justify-center items-center gap-3">Baca Selengkapnya <span><img src="images/arrow_blue.png" width="19px" alt=""></span></a>
                 </div>
             </div>
         </div>
@@ -59,8 +50,19 @@
                 <h1 class="text-xl text-[#0088CC] font-medium">Website Pelatihan nomor 1. di Indonesia 🇮🇩 </h1>
             </div>
             <div class="w-full pb-7 gap-6 grid grid-cols-2 max-md:grid-cols-1">
-                <img class="w-full h-full object-cover rounded-xl border-2" src="images/thumbnail2.png" alt="">
-                <img class="w-full h-full object-cover rounded-xl border-2" src="images/thumbnail3.png" alt="">
+                <div class="w-full h-full border bg-white rounded-xl flex justify-center items-center flex-col text-center p-9 gap-3 py-16">
+                    <img class="size-24" src="images/nilai_3.png" alt="">
+                    <h1 class="text-2xl font-bold">Visi Kami</h1>
+                    <h1 class="text-lg font-normal text-zinc-700">Visi kami adalah menjadi mitra pendidikan yang diakui secara global, terkenal karena kreativitas, keahlian, dan komitmen teguh kami terhadap kesuksesan klien kami
+                    </h1>
+                </div>
+                <div class="w-full h-full border bg-white rounded-xl flex justify-center items-center flex-col text-center p-9 gap-3 py-16">
+                    <img class="size-24" src="images/nilai_2.png" alt="">
+                    <h1 class="text-2xl font-bold">Misi Kami</h1>
+                    <h1 class="text-lg font-normal text-zinc-700">Misi kami adalah memberdayakan pendidikan dengan solusi inovatif dan luar biasa yang mendorong pertumbuhan berkelanjutan
+
+                    </h1>
+                </div>
             </div>
         </div>
     </div>
