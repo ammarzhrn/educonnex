@@ -33,7 +33,7 @@
                 <a class="text-xl font-semibold text-zinc-600" href="#">info@educonnex.co.id</a>
             </div>
             </div>
-            <div class="flex justify-end items-start w-1/4 h-full max-md:w-full">
+            <div class="flex justify-start items-start w-full h-full max-md:w-full">
                 <img class="w-full max-md:w-2/5" src="images/wa_button.png" alt="">
             </div>
         </div>
