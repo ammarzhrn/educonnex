@@ -89,7 +89,7 @@
                 <h1 class="text-4xl font-bold">Capaian Prestasi Gemilang dari Educonnex</h1>
                 <h1 class="text-xl text-[#0088CC] font-medium">Platform Pelatihan dengan berbagai Prestasi.</h1>
             </div>
-            <div class="w-full pb-7 gap-6 grid grid-cols-3 max-md:grid-cols-2">
+            <div class="w-full pb-7 gap-6 grid grid-cols-3 max-md:grid-cols-1">
 
                 {{-- Item Prestasi --}}
                 <div class="w-full h-[350px] border bg-white rounded-xl flex justify-center items-center flex-col text-center p-9 gap-8">
