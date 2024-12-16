@@ -5,7 +5,7 @@
         <div
             class="max-w-7xl mx-auto w-full h-full flex justify-between items-center flex-row max-md:px-5 max-md:flex-col-reverse">
             <div class="h-full w-1/2 flex justify-center items-start flex-col gap-6 max-md:w-full max-md:h-3/5">
-                <h1 class="text-5xl font-bold text-white">Program Konten</h1>
+                <h1 class="text-5xl font-bold text-white">Program</h1>
                 <div class="grid grid-cols-4 gap-3">
                     <img src="images/tiktok_content_logo.png" class="h-10" alt="">
                     <img src="images/fb_content_logo.png" class="h-10" alt="">

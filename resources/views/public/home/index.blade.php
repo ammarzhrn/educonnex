@@ -30,7 +30,7 @@
             </div>
             <div class="w-full pb-7 flex justify-between items-center flex-row gap-4 max-md:flex-col">
                 <div class="w-1/2 h-[420px] flex justify-center items-center rounded-xl border-2 overflow-hidden max-md:w-full">
-                    <img class="w-full h-full object-cover" src="images/thumbnail.png" alt="">
+                    <img class="w-full h-full object-cover" src="images/main_thumbnail.png" alt="">
                 </div>
                 <div class="w-1/2 h-[420px] flex justify-center items-start flex-col gap-10 pl-5 max-md:p-0 max-md:w-full">
                     <h1 class="text-2xl text-gray-500 font-medium text-justify">
