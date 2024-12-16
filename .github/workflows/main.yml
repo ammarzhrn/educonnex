@@ -23,7 +23,6 @@ jobs:
           **/node_modules/**
           **/bootstrap/**
           **/database/**
-          **/storage/**
           **/stubs/**
           **/tests/**
           **/vendor/**
