@@ -42,6 +42,11 @@
                         : 'text-black border-b-2 border-transparent'">
                         {{ __('Artikel') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('berita.index')" :active="request()->routeIs('berita.index')" :class="request()->routeIs('berita.index') 
+                        ? 'text-[#0088CC] border-b-2 border-[#0088CC]' 
+                        : 'text-black border-b-2 border-transparent'">
+                        {{ __('Berita') }}
+                    </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -82,6 +87,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
                 {{ __('Artikel') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
+                {{ __('Berita') }}
             </x-responsive-nav-link>
         </div>
     </div>

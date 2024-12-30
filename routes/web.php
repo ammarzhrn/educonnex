@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicArticleController;
+use App\Http\Controllers\PublicNewsController;
 use App\Http\Controllers\PublicHomeController;
 use App\Http\Controllers\PublicProgramController;
 use App\Http\Controllers\SectorController;
@@ -23,6 +24,9 @@ Route::get('/programs/sector/{sector}', [PublicProgramController::class, 'listBy
 
 Route::resource('articles', PublicArticleController::class);
 Route::get('/articles/search', [PublicArticleController::class, 'search'])->name('articles.search');
+
+Route::resource('berita', PublicNewsController::class);
+Route::get('/berita/search', [PublicNewsController::class, 'search'])->name('berita.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
