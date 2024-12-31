@@ -88,7 +88,7 @@
             <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
                 {{ __('Artikel') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
+            <x-responsive-nav-link :href="route('berita.index')" :active="request()->routeIs('berita.index')">
                 {{ __('Berita') }}
             </x-responsive-nav-link>
         </div>
