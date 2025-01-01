@@ -66,7 +66,7 @@
                             alt="" />
                     </a>
                     <div class="p-5 h-[200px]">
-                        <a href="">
+                        <a href="{{route('articles.show', $article->id)}}">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$article->title}}</h5>
                         </a>
                         <p class="text-justify text-neutral-600">
